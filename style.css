@@ -1,0 +1,105 @@
+* {
+    margin: 0;
+    padding: 0;
+    /*background-color: #81a4ff;*/
+
+}
+
+body {
+    width: 100vw;
+    min-height: 100vh;
+    background: no-repeat linear-gradient(to bottom, cornflowerblue, cyan);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    background: white;
+    width: 500px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+    padding: 25px;
+}
+
+.ToDo, .Add, .TaskBig, .Pend {
+    font-size: 25px;
+    /*border: 1px solid black;*/
+    width: fit-content;
+    height: fit-content;
+    box-sizing: border-box;
+}
+
+.ToDo {
+    /*flex-grow: 1;*/
+}
+
+.Add {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.plus-button {
+    width: 85px;
+    height: 35px;
+    text-align: center;
+
+}
+
+.task-count {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.task-count-text {
+}
+
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.task-list-item {
+    width: 100%;
+    background: #EDEDED;
+    height: 35px;
+    border-radius: 3px;
+}
+
+.wrapper {
+    width: 520px;
+}
+input {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    outline: none;
+    border: 1px solid #aaa;
+    border-radius: 3px;
+}
+
+button[type="reset"] {
+    display: none;
+}
+
+.clear-button {
+    padding: 8px 10px;
+}
+
+.common-button {
+    background: rgba(60,0,171,0.4);
+    border-radius: 3px;
+    border: none;
+    box-shadow: 1px 2px 14px -5px rgba(34, 60, 80, 0.2);
+    color: white;
+}
