@@ -6,11 +6,14 @@
 	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>ToDoMain</title>
-  <link href="style.css" rel="stylesheet" type="text/css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+	<link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 		<div class="container">
-			<h1 class="ToDo">ToDo App</h1>
+			<h1 class="to-do">ToDo App</h1>
 
 			<div class="Add">
 				<input type="text" required="required" placeholder="Add your new todo" />
@@ -18,14 +21,22 @@
 			</div>
 
 			<div class="task-list">
-				<div class="task-list-item">Task1</div>
-				<div class="task-list-item">Task2</div>
-				<div class="task-list-item">Task3</div>
-				<div class="task-list-item">Task4</div>
+				<div class="task-list-item">
+					<p class="task-list-item-text">Task1</p>
+				</div>
+				<div class="task-list-item">
+					<p class="task-list-item-text">Task2</p>
+				</div>
+				<div class="task-list-item">
+					<p class="task-list-item-text">Task3</p>
+				</div>
+				<div class="task-list-item">
+					<p class="task-list-item-text">Task4</p>
+				</div>
 			</div>
 
 			<div class="task-count">
-				<p class="task-count-text">Pending</p>
+				<p class="task-count-text">You have () pending tasks</p>
 				<button class="common-button clear-button">Clear All</button>
 			</div>
 		</div>

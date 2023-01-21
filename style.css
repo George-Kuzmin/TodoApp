@@ -1,8 +1,6 @@
 * {
     margin: 0;
     padding: 0;
-    /*background-color: #81a4ff;*/
-
 }
 
 body {
@@ -13,6 +11,7 @@ body {
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    font-family: "Montserrat", serif, sans-serif;
 }
 
 .container {
@@ -26,16 +25,8 @@ body {
     padding: 25px;
 }
 
-.ToDo, .Add, .TaskBig, .Pend {
-    font-size: 25px;
-    /*border: 1px solid black;*/
-    width: fit-content;
-    height: fit-content;
-    box-sizing: border-box;
-}
-
-.ToDo {
-    /*flex-grow: 1;*/
+.to-do {
+    margin-bottom: 5%;
 }
 
 .Add {
@@ -43,23 +34,30 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-bottom: 5%;
+    gap:8px;
+}
+
+.wrapper {
+    width: 520px;
+}
+input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    outline: none;
+    border: 1px solid #aaa;
+    border-radius: 3px;
+}
+
+button[type="reset"] {
+    display: none;
 }
 
 .plus-button {
-    width: 85px;
+    width: 65px;
     height: 35px;
     text-align: center;
-
-}
-
-.task-count {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.task-count-text {
 }
 
 .task-list {
@@ -72,24 +70,20 @@ body {
 .task-list-item {
     width: 100%;
     background: #EDEDED;
-    height: 35px;
+    /*height: 35px;*/
     border-radius: 3px;
 }
 
-.wrapper {
-    width: 520px;
-}
-input {
+.task-count {
     width: 100%;
-    padding: 10px;
-    box-sizing: border-box;
-    outline: none;
-    border: 1px solid #aaa;
-    border-radius: 3px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
-button[type="reset"] {
-    display: none;
+.task-count-text {
+    width: 80%;
+    padding-top: 6px;
 }
 
 .clear-button {
@@ -102,4 +96,8 @@ button[type="reset"] {
     border: none;
     box-shadow: 1px 2px 14px -5px rgba(34, 60, 80, 0.2);
     color: white;
+}
+
+.task-list-item-text {
+    padding: 9px;
 }
