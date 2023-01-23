@@ -16,11 +16,18 @@
 			<h1 class="to-do">ToDo App</h1>
 
 			<div class="Add">
-				<input type="text" required="required" placeholder="Add your new todo" />
-				<button class="common-button plus-button">+</button>
+				<input id="input" type="text" required="required" placeholder="Add your new todo" />
+				<button id="add_button" type="submit" class="common-button plus-button">
+					<div class="plus-picture">
+						<img src="plus-pic.png"
+						     alt="plus"
+						     width="25"
+						     height="25">
+					</div>
+				</button>
 			</div>
 
-			<div class="task-list">
+			<div id="task_list" class="task-list">
 				<div class="task-list-item">
 					<p class="task-list-item-text">Task1</p>
 				</div>
@@ -41,4 +48,6 @@
 			</div>
 		</div>
 </body>
+<script src="js.js">
+</script>
 </html>
