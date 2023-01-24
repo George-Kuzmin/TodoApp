@@ -55,9 +55,12 @@ button[type="reset"] {
 }
 
 .plus-button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
     width: 50px;
     height: 35px;
-    text-align: center;
 }
 
 .task-list {
@@ -72,6 +75,9 @@ button[type="reset"] {
     background: #EDEDED;
     /*height: 35px;*/
     border-radius: 3px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .task-count {
@@ -104,10 +110,23 @@ button[type="reset"] {
     padding: 9px;
 }
 
-.plus-picture {
-    display: flex;
+.clear-task-button {
+    width: 40px;
+    color: white;
+    background: red;
+    border: none;
+    border-radius: 3px;
+    /*display: flex;*/
     flex-direction: row;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    display: none;
 }
 
+.task-list-item:hover .clear-task-button {
+    display: block;
+}
+
+.btn-action img {
+    pointer-events: none;
+}
