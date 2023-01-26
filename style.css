@@ -113,7 +113,7 @@ button[type="reset"] {
 .clear-task-button {
     width: 40px;
     color: white;
-    background: red;
+    background: #FF5555;
     border: none;
     border-radius: 3px;
     /*display: flex;*/
@@ -127,6 +127,28 @@ button[type="reset"] {
     display: block;
 }
 
+.task-list-item:hover .edit-task-button {
+    display: block;
+}
+
 .btn-action img {
     pointer-events: none;
+}
+
+.edit-task-button {
+    width: 40px;
+    color: white;
+    background: #C2C2C2;
+    border: none;
+    border-radius: 3px;
+    /*display: flex;*/
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.div-for-button {
+    display: flex;
+
 }
