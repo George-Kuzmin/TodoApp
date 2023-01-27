@@ -5,11 +5,14 @@ const taskList = document.getElementById("task_list")
 const clearAllButton = document.getElementById("clear_all")
 const taskCountText = document.getElementsByClassName("task-count-text")[0]
 
+
 button.addEventListener("click", addTask);
-taskList.addEventListener("click", deleteTask)
+taskList.addEventListener("click", DeleteOrEditTask)
 clearAllButton.addEventListener("click", clearAll)
 
 let tasks = [];
+let isEdit = false
+let id = null
 
 let storageItems = localStorage.getItem("tasks")
 if (storageItems) {
@@ -37,20 +40,25 @@ tasks.forEach(function (task) {
 
 // функции
 function addTask () {
-    const taskText = taskInput.value
+    if (isEdit) {
+        const taskTitle = document.querySelector(".task-list-item-text")
+        taskTitle.textContent = taskInput.value
+        isEdit = false
+    } else {
+        const taskText = taskInput.value
 
-    const newTask = {
-        id: Date.now(),
-        text: taskText,
-        done: false
-    };
+        const newTask = {
+            id: Date.now(),
+            text: taskText,
+            done: false
+        };
 
-    tasks.push(newTask)
+        tasks.push(newTask)
 
-    saveToLocalStorage()
+        saveToLocalStorage()
 
-    const newTaskHTML = document.createElement("div")
-    newTaskHTML.innerHTML = `
+        const newTaskHTML = document.createElement("div")
+        newTaskHTML.innerHTML = `
         <div id="${newTask.id}" class="task-list-item">
             <p class="task-list-item-text">${newTask.text}</p>
             <div class="div-for-button">
@@ -63,29 +71,35 @@ function addTask () {
             </div>
         </div>
   `
-    taskList.appendChild(newTaskHTML)
+        taskList.appendChild(newTaskHTML)
 
-    // очищаем поле ввода и возвращаем на него фокус
-    taskInput.value = ""
-    taskInput.focus()
+        // очищаем поле ввода и возвращаем на него фокус
+        taskInput.value = ""
+        taskInput.focus()
+    }
 }
-
-function deleteTask (event) {
+function DeleteOrEditTask (event) {
     // проверяем, что клик будет по кнопке удалить
     if (event.target.dataset.action === "delete") {
         const parentNode = event.target.closest(".task-list-item")
         const id = Number(parentNode.id)
 
         const index = tasks.findIndex(function (task) {
-            if (task.id === id) {
-                return true
-            }
+            return task.id === id
         })
 
         // удаляем задачу из массива
         tasks.splice(index, 1)
         saveToLocalStorage()
         parentNode.remove()
+    }
+
+    if (event.target.dataset.action === "edit") {
+        const parentNode = event.target.closest(".task-list-item")
+        const taskTitle = parentNode.querySelector(".task-list-item-text")
+        taskInput.value = taskTitle.textContent
+        isEdit = true
+        id = Number(parentNode.id)
     }
 }
 function clearAll (event) {
@@ -100,22 +114,5 @@ function saveToLocalStorage () {
 function updateTaskCount () {
     taskCountText.innerText = `You have ${tasks.length} pending tasks`
 }
-updateTaskCount()
 
-function createHtmlElement (task) {
-    const newTaskHTML = document.createElement("div")
-    newTaskHTML.innerHTML = `
-        <div id="${task.id}" class="task-list-item">
-            <p class="task-list-item-text">${task.text}</p>
-            <div class="div-for-button">
-              <button class="edit-task-button btn-action" data-action="edit">
-                <img src="edit-pencil.png" alt="edit" width="22" height="22">
-              </button>
-              <button class="clear-task-button btn-action" data-action="delete">
-                <img src="trash-2-48.png" alt="delete" width="17" height="17"/>
-              </button>
-            </div>
-        </div>
-  `
-    taskList.appendChild(newTaskHTML)
-}
+updateTaskCount()
